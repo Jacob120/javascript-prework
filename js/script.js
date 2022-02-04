@@ -56,12 +56,12 @@ function playGame(playerInput) {
 }
 
 document.getElementById("play-rock").addEventListener("click", function () {
-  playGame(playerInput);
+  playGame(1);
 });
 
 document.getElementById("play-paper").addEventListener("click", function () {
-  printMessage("Papier");
+  playGame(2);
 });
 document.getElementById("play-scissors").addEventListener("click", function () {
-  printMessage("Nożyce");
+  playGame(3);
 });
