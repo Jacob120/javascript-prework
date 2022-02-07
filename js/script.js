@@ -46,21 +46,20 @@ function playGame(playerInput) {
 
   function displayResult(argComputerMove, argPlayerMove) {
     printMessage("Twój ruch to: " + argPlayerMove);
-    if (argPlayerMove == "kamień" && computerResult > 0.25 * playerResult) {
-      computerMove = 3;
+    if ((playerMove = getMoveName(1) && computerResult > 0.25 * playerResult)) {
+      computerMove = getMoveName(3);
+      showPlayerWin();
     } else if (
-      argPlayerMove == "papier" &&
-      computerResult > 0.25 * playerResult
+      (playerMove = getMoveName(2) && computerResult > 0.25 * playerResult)
     ) {
-      computerMove = 1;
+      computerMove = getMoveName(1);
+      showPlayerWin();
     } else if (
-      argPlayerMove == "nożyce" &&
-      computerResult > 0.25 * playerResult
+      (playerMove = getMoveName(3) && computerResult > 0.25 * playerResult)
     ) {
-      computerMove = 2;
-    }
-
-    if (argComputerMove == "kamień" && argPlayerMove == "papier") {
+      computerMove = getMoveName(2);
+      showPlayerWin();
+    } else if (argComputerMove == "kamień" && argPlayerMove == "papier") {
       showPlayerWin();
     } else if (argComputerMove == "kamień" && argPlayerMove == "nożyce") {
       showComputerWin();
