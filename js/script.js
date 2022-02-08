@@ -28,57 +28,57 @@
 
     const playerMove = getMoveName(playerInput);
 
-    function showPlayerWin() {
+    const playerWin = function showPlayerWin() {
       playerResult = playerResult + 1;
       printMessage("Ty wygrywasz!");
       printResult(playerResult + ":" + computerResult);
-    }
+    };
 
-    function showComputerWin() {
+    const computerWin = function showComputerWin() {
       computerResult = computerResult + 1;
       printMessage("Przegrywasz!");
       printResult(playerResult + ":" + computerResult);
-    }
+    };
 
-    function displayResult(argComputerMove, argPlayerMove) {
+    const result = function displayResult(argComputerMove, argPlayerMove) {
       printMessage("Twój ruch to: " + argPlayerMove);
       if (argPlayerMove == "kamień" && computerResult > 0.25 * playerResult) {
         // randomNumber = 3;
-        showPlayerWin();
+        playerWin();
       } else if (
         argPlayerMove == "papier" &&
         computerResult > 0.25 * playerResult
       ) {
         // randomNumber = 2;
-        showPlayerWin();
+        playerWin();
       } else if (
         argPlayerMove == "nożyce" &&
         computerResult > 0.25 * playerResult
       ) {
         // randomNumber = 1;
-        showPlayerWin();
+        playerWin();
       } else if (argComputerMove == "kamień" && argPlayerMove == "papier") {
-        showPlayerWin();
+        playerWin();
       } else if (argComputerMove == "kamień" && argPlayerMove == "nożyce") {
-        showComputerWin();
+        computerWin();
       } else if (argComputerMove == "kamień" && argPlayerMove == "kamień") {
         printMessage("Remis!");
       } else if (argComputerMove == "papier" && argPlayerMove == "papier") {
         printMessage("Remis!");
       } else if (argComputerMove == "papier" && argPlayerMove == "nożyce") {
-        showPlayerWin();
+        playerWin();
       } else if (argComputerMove == "papier" && argPlayerMove == "kamień") {
-        showComputerWin();
+        computerWin();
       } else if (argComputerMove == "nożyce" && argPlayerMove == "papier") {
-        showComputerWin();
+        computerWin();
       } else if (argComputerMove == "nożyce" && argPlayerMove == "nożyce") {
         printMessage("Remis!");
       } else if (argComputerMove == "nożyce" && argPlayerMove == "kamień") {
-        showPlayerWin();
+        playerWin();
       }
-    }
+    };
 
-    displayResult(computerMove, playerMove);
+    result(computerMove, playerMove);
   };
 
   document.getElementById("play-rock").addEventListener("click", function () {
