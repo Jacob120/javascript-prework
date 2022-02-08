@@ -4,7 +4,7 @@
 
   const startGame = function playGame(playerInput) {
     clearMessages();
-    function getMoveName(argMoveId) {
+    const moveName = function getMoveName(argMoveId) {
       if (argMoveId == 1) {
         return "kamień";
       } else if (argMoveId == 2) {
@@ -14,19 +14,19 @@
       } else {
         return "Nieznany ruch";
       }
-    }
+    };
 
     let randomNumber = Math.floor(Math.random() * 3 + 1);
 
     console.log("Wylosowana liczba to: " + randomNumber);
 
-    const computerMove = getMoveName(randomNumber);
+    const computerMove = moveName(randomNumber);
 
     printMessage("Komputer wylosował: " + computerMove);
 
     console.log("Gracz wpisał: " + playerInput);
 
-    const playerMove = getMoveName(playerInput);
+    const playerMove = moveName(playerInput);
 
     const playerWin = function showPlayerWin() {
       playerResult = playerResult + 1;
